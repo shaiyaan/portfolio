@@ -1,0 +1,136 @@
+import React, { useState } from 'react';
+import { Activity, BarChart2, Database, Timer, LineChart, DollarSign } from 'lucide-react';
+
+const Portfolio = () => {
+  const [activeProject, setActiveProject] = useState(null);
+
+  const projects = [
+    {
+      id: 1,
+      title: "Marathon Analysis Dashboard",
+      icon: <Activity className="w-8 h-8 text-blue-500" />,
+      description: "Comprehensive analysis of Boston Marathon data (2010-2023) examining runner demographics, finish times, and performance trends.",
+      skills: ["Python", "Data Analysis", "Visualization", "Statistical Analysis"],
+      color: "bg-blue-500",
+      highlights: [
+        "Analyzed 13 years of marathon data",
+        "Created predictive models for finish times",
+        "Developed interactive visualizations"
+      ]
+    },
+    {
+      id: 2,
+      title: "Student Loan Data Visualization",
+      icon: <Database className="w-8 h-8 text-purple-500" />,
+      description: "Analysis of U.S. student loan data, focusing on state-wise distribution and temporal trends.",
+      skills: ["Data Visualization", "Statistical Analysis", "Python"],
+      color: "bg-purple-500",
+      highlights: [
+        "Analyzed nationwide loan data",
+        "Created interactive state-wise comparisons",
+        "Generated insightful trend visualizations"
+      ]
+    },
+    {
+      id: 3,
+      title: "Bluebike Time Prediction",
+      icon: <Timer className="w-8 h-8 text-green-500" />,
+      description: "Machine learning model to predict trip durations for Boston's Bluebike sharing system.",
+      skills: ["Machine Learning", "Regression Analysis", "Feature Engineering"],
+      color: "bg-green-500",
+      highlights: [
+        "Developed predictive models",
+        "Implemented Haversine distance calculations",
+        "Achieved improved RMSE through filtering"
+      ]
+    },
+    {
+      id: 4,
+      title: "News Clustering Analysis",
+      icon: <BarChart2 className="w-8 h-8 text-red-500" />,
+      description: "Unsupervised learning project clustering news articles using NLP techniques.",
+      skills: ["NLP", "Clustering", "API Integration", "PCA"],
+      color: "bg-red-500",
+      highlights: [
+        "Implemented TF-IDF vectorization",
+        "Applied KMeans clustering",
+        "Created interactive visualizations"
+      ]
+    },
+    {
+      id: 5,
+      title: "NBA Stats Predictor",
+      icon: <LineChart className="w-8 h-8 text-orange-500" />,
+      description: "Predictive modeling for NBA player performance statistics.",
+      skills: ["Machine Learning", "Sports Analytics", "Time Series"],
+      color: "bg-orange-500",
+      highlights: [
+        "Processed historical player data",
+        "Developed predictive models",
+        "Created interactive dashboards"
+      ]
+    },
+    {
+      id: 6,
+      title: "Sharpe Ratio Analysis",
+      icon: <DollarSign className="w-8 h-8 text-indigo-500" />,
+      description: "Financial analysis tool calculating Sharpe ratios for G10 currency pairs.",
+      skills: ["Financial Analysis", "Risk Assessment", "Python"],
+      color: "bg-indigo-500",
+      highlights: [
+        "Analyzed G10 currency pairs",
+        "Implemented Sharpe ratio calculations",
+        "Created comparative visualizations"
+      ]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">Data Science Portfolio</h1>
+        <p className="text-xl text-gray-300">Transforming Data into Insights</p>
+      </header>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="bg-gray-800 rounded-lg p-6 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            onClick={() => setActiveProject(activeProject === project.id ? null : project.id)}
+          >
+            <div className="flex items-center mb-4">
+              <div className={`p-3 rounded-full ${project.color} bg-opacity-20 mr-4`}>
+                {project.icon}
+              </div>
+              <h3 className="text-xl font-semibold">{project.title}</h3>
+            </div>
+            <p className="text-gray-400 mb-4">{project.description}</p>
+            
+            {activeProject === project.id && (
+              <div className="mt-4 space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-gray-700 rounded-full text-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <ul className="list-disc list-inside text-gray-300">
+                  {project.highlights.map((highlight, index) => (
+                    <li key={index} className="mt-2">{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Portfolio;
