@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Clustering with News Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #000000;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #a78bfa,
+                #ec4899,
+                #8b5cf6,
+                #d946ef
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.01);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+        }
+
+        /* Syntax Highlighting Colors */
+        .syntax-comment {
+            color: #a78bfa; /* purple-400 */
+        }
+        .syntax-keyword {
+            color: #60a5fa; /* blue-400 */
+        }
+        .syntax-string {
+            color: #6ee7b7; /* green-300 */
+        }
+        .syntax-function {
+            color: #fcd34d; /* yellow-300 */
+        }
+        .syntax-number {
+            color: #f87171; /* red-400 */
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="py-4 px-8 border-b border-zinc-800 section-animate">
+        <a href="../index.html" class="text-purple-400 hover:text-purple-300 flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Back to Portfolio
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="text-center mb-12 pt-20 section-animate" style="animation-delay: 0.2s">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-4 gradient-text">
+                K Clustering with News Articles
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                News Article Categorization using Unsupervised Machine Learning Techniques
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://github.com/yourusername/nba-stats-predictor" 
+                   class="flex items-center gap-2 px-6 py-3 bg-purple-500 hover:bg-purple-600 rounded-full transition-colors duration-300">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                    View Code
+                </a>
+                <a href="#" 
+                   class="flex items-center gap-2 px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors duration-300">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="space-y-12">
+            <!-- Problem Statement -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.4s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="target" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">The Challenge</h2>
+                </div>
+                <p class="text-gray-300 leading-relaxed">
+                    In an era of information overload, extracting meaningful insights from the vast amount of unstructured text data, such as news articles, is both time-consuming and inconvenient. Without efficient methods for processing and analyzing this data, users struggle to identify trends, topics, and relationships that could inform decision-making. This project addresses these challenges by leveraging machine learning techniques to cluster and visualize news articles, enabling users to transform raw text data into actionable insights with ease and efficiency.
+                </p>
+            </section>
+
+            <!-- Approach -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.6s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="brain" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">My Approach</h2>
+                </div>
+                <div class="space-y-8">
+                    <!-- Data Collection -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Data Collection</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Queried articles using the News API's "everything" endpoint, based on selected keyword(s).</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Limitation: The free API version restricts results to 100 articles, with each article's content limited to 200 characters.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Text Processing -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Text Processing</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>TF-IDF Vectorization: Converted article content into numerical features using Term Frequency-Inverse Document Frequency (TF-IDF).</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Dimensionality Reduction with PCA: Applied Principal Component Analysis (PCA) to reduce TF-IDF features to two components for improved clustering and visualization.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>KMeans Clustering: Implemented KMeans clustering on the PCA-transformed data, experimented with different values of k, calculated inertia, and used the elbow method to identify optimal clusters.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Visualization -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Visualization</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Scatterplot (After PCA): Plotted clusters in a 2D space to visualize groupings, using first and second PCA components as axes.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Used distinct colors to represent clusters as determined by the KMeans model.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Code Examples -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.8s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="code" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Code Examples</h2>
+                </div>
+                <div>
+                    <div class="bg-zinc-800 p-6 rounded-lg overflow-x-auto">
+                        <pre class="text-sm"><code><span class="syntax-keyword">def</span> <span class="syntax-function">compute_clusters</span>(df, centroids):
+    centroid_assign = []
+    <span class="syntax-keyword">for</span> i <span class="syntax-keyword">in</span> <span class="syntax-function">range</span>(<span class="syntax-function">len</span>(df)):
+        current_point = df.iloc[i][[<span class="syntax-string">'x'</span>, <span class="syntax-string">'y'</span>]]
+        min_distance = <span class="syntax-function">float</span>(<span class="syntax-string">'inf'</span>)
+        min_centroid = -<span class="syntax-number">1</span>
+        <span class="syntax-keyword">for</span> j <span class="syntax-keyword">in</span> <span class="syntax-function">range</span>(<span class="syntax-function">len</span>(centroids)):
+            current_centroid = centroids.iloc[j][[<span class="syntax-string">'x'</span>, <span class="syntax-string">'y'</span>]]
+            distance = ssd.euclidean(current_centroid, current_point)
+            <span class="syntax-keyword">if</span> distance < min_distance:
+                min_distance = distance
+                min_centroid = j
+        centroid_assign.append(min_centroid)
+    df[<span class="syntax-string">'cluster'</span>] = centroid_assign</code></pre>
+                    </div>
+                    <div class="mt-4 text-gray-400 text-sm">
+                        <p>This clustering function assigns each data point to its nearest centroid using Euclidean distance, forming the core of the K-means algorithm.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Learnings -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="lightbulb" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Key Learnings</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Used APIs to collect real-world data and handled API limitations effectively (e.g., content length, max results).</p>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Vectorized text data with TF-IDF and used PCA for dimensionality reduction to facilitate clustering.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Applied and evaluated KMeans clustering, using metrics like inertia to guide decisions.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Created effective visualizations including scatterplots to represent clusters in 2D space and elbow plots to determine optimal cluster count.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Benefits -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.2s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="check-circle" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Key Benefits</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Insights from Unstructured Data -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Insights from Raw Data</h3>
+                        <p class="text-gray-300">Transforms unstructured text data into structured insights, helping users, researchers, and businesses quickly identify trends, topics, and themes within news data for data-driven decisions.</p>
+                    </div>
+
+                    <!-- Visualization of Complex Data -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Enhanced Decision Making</h3>
+                        <p class="text-gray-300">Reduces high-dimensional text data into interpretable 2D visualizations, enabling users to visually identify patterns, relationships, and outliers that might be missed in raw text form.</p>
+                    </div>
+
+                    <!-- Scalable Framework -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Scalable Framework</h3>
+                        <p class="text-gray-300">Provides a highly adaptable methodology that can be scaled to various domains, allowing analysis of different unstructured datasets like customer reviews or research papers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Implementation (moved to bottom) -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.4s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="book-open" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Technical Implementation</h2>
+                </div>
+                <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                    <h3 class="text-lg font-semibold mb-4 text-purple-400">Core Technologies</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Data Retrieval: News API</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Text Processing: TF-IDF Vectorization</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Dimensionality Reduction: PCA</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Clustering: KMeans (sklearn)</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Data Handling: Pandas, NumPy</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Visualization: Matplotlib</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
