@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+import React from 'react';
+import { Book, Code, Database, Brain } from 'lucide-react';
+
+const AboutMe = () => {
+  return (
+    <div className="space-y-12">
+      <section className="text-center max-w-3xl mx-auto">
+        <h2 className="text-4xl font-bold mb-6">About Me</h2>
+        <p className="text-xl text-gray-300">
+          I'm a Data Scientist with a passion for transforming complex data into actionable insights.
+          My background in finance and expertise in machine learning allows me to bridge the gap
+          between business challenges and technical solutions.
+        </p>
+      </section>
+
+      <section className="grid md:grid-cols-2 gap-8 mt-12">
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <div className="flex items-center mb-4">
+            <Book className="w-6 h-6 text-blue-500 mr-3" />
+            <h3 className="text-xl font-semibold">Education</h3>
+          </div>
+          <ul className="space-y-4 text-gray-300">
+            <li>
+              <div className="font-semibold">Master's in Data Science</div>
+              <div className="text-sm">University Name, 2022-2024</div>
+            </li>
+            <li>
+              <div className="font-semibold">Bachelor's in Finance</div>
+              <div className="text-sm">University Name, 2018-2022</div>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <div className="flex items-center mb-4">
+            <Code className="w-6 h-6 text-green-500 mr-3" />
+            <h3 className="text-xl font-semibold">Technical Skills</h3>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-semibold mb-2">Languages</h4>
+              <ul className="text-gray-300">
+                <li>Python</li>
+                <li>R</li>
+                <li>SQL</li>
+                <li>Java</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">Tools</h4>
+              <ul className="text-gray-300">
+                <li>TensorFlow</li>
+                <li>PyTorch</li>
+                <li>Scikit-learn</li>
+                <li>Pandas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <div className="flex items-center mb-4">
+            <Database className="w-6 h-6 text-purple-500 mr-3" />
+            <h3 className="text-xl font-semibold">Areas of Expertise</h3>
+          </div>
+          <ul className="text-gray-300 space-y-2">
+            <li>Machine Learning & Deep Learning</li>
+            <li>Statistical Analysis</li>
+            <li>Data Visualization</li>
+            <li>Financial Analysis</li>
+            <li>Time Series Analysis</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <div className="flex items-center mb-4">
+            <Brain className="w-6 h-6 text-red-500 mr-3" />
+            <h3 className="text-xl font-semibold">Interests</h3>
+          </div>
+          <ul className="text-gray-300 space-y-2">
+            <li>Sports Analytics</li>
+            <li>Natural Language Processing</li>
+            <li>Financial Markets</li>
+            <li>Machine Learning Research</li>
+            <li>Data Ethics</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default AboutMe;

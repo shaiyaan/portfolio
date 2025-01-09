@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Stats Predictor - Portfolio Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #818CF8, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-tag {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(147, 51, 234, 0.3);
+            border-color: rgba(147, 51, 234, 0.5);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="py-4 px-8 border-b border-zinc-800">
+        <a href="../index.html" class="text-purple-400 hover:text-purple-300 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Portfolio
+        </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Project Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 gradient-text">NBA Stats Predictor</h1>
+            <p class="text-xl text-gray-400">Machine Learning Model for NBA Player Performance Prediction</p>
+        </header>
+
+        <!-- Project Details -->
+        <div class="space-y-12">
+            <!-- Overview -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+                <h2 class="text-2xl font-bold mb-4 text-purple-400">Project Overview</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    This project uses machine learning to predict NBA player performance statistics. 
+                    By analyzing historical data and various player metrics, the model provides insights 
+                    into expected player performance for upcoming games.
+                </p>
+            </section>
+
+            <!-- Technologies Used -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+                <h2 class="text-2xl font-bold mb-4 text-purple-400">Technologies Used</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-tag px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20 cursor-pointer transition-all duration-300 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Python
+                        </span>
+                    </span>
+
+                    <span class="skill-tag px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20 cursor-pointer transition-all duration-300 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                            Scikit-learn
+                        </span>
+                    </span>
+
+                    <span class="skill-tag px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20 cursor-pointer transition-all duration-300 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5M8 8v8m-4-5v5m16-5v5M4 6h16M4 10h16M4 14h16M4 18h16" />
+                            </svg>
+                            Pandas
+                        </span>
+                    </span>
+
+                    <span class="skill-tag px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20 cursor-pointer transition-all duration-300 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z M7 14.5l3-3 2 2 3-3 2 2" />
+                            </svg>
+                            NumPy
+                        </span>
+                    </span>
+
+                    <span class="skill-tag px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20 cursor-pointer transition-all duration-300 hover:bg-purple-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                            </svg>
+                            Matplotlib
+                        </span>
+                    </span>
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+                <h2 class="text-2xl font-bold mb-4 text-purple-400">Key Features</h2>
+                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                    <li>Player performance prediction based on historical data</li>
+                    <li>Advanced statistical analysis of game metrics</li>
+                    <li>Interactive dashboard for data visualization</li>
+                    <li>Real-time updates during NBA season</li>
+                    <li>Comparative analysis between players and teams</li>
+                </ul>
+            </section>
+
+            <!-- Results -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+                <h2 class="text-2xl font-bold mb-4 text-purple-400">Results & Impact</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    The model achieved 85% accuracy in predicting player performance metrics, 
+                    including points, rebounds, and assists. This tool has been particularly 
+                    useful for fantasy basketball players and sports analysts in making 
+                    data-driven decisions.
+                </p>
+            </section>
+
+            <!-- GitHub Link -->
+            <section class="text-center">
+                <a href="https://github.com/yourusername/nba-stats-predictor" 
+                   class="inline-flex items-center gap-2 px-6 py-3 bg-purple-500 hover:bg-purple-600 rounded-full text-white transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+            </section>
+        </div>
+    </main>
+</body>
+</html> 
