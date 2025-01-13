@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Stats Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #000000;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #a78bfa,
+                #ec4899,
+                #8b5cf6,
+                #d946ef
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.01);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="py-4 px-8 border-b border-zinc-800 section-animate">
+        <a href="../index.html" class="text-purple-400 hover:text-purple-300 flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Back to Portfolio
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="text-center mb-12 pt-20 section-animate" style="animation-delay: 0.2s">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-4 gradient-text">
+                NBA Stats Predictor
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                A machine learning solution for predicting NBA player's Points, Rebounds, and Assists
+            </p>
+            <!-- Two Button Layout -->
+            <div class="flex justify-center gap-4">
+                <a href="https://github.com/shaiyaan/nba-stats" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="group flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full transform transition-all duration-300 hover:scale-105 hover:from-pink-400 hover:to-purple-400 text-white">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                    <span>View Code</span>
+                </a>
+                <!-- Potential second button ideas:
+                1. "View Demo" - if you have an interactive demo
+                2. "View Dataset" - link to the NBA dataset used
+                3. "View Results" - detailed analysis/findings
+                4. "View Visualization" - if you have interactive charts
+                5. "View Documentation" - detailed technical writeup
+                -->
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4">
+        <div class="space-y-12">
+            <!-- Problem Statement -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="target" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Problem Statement</h2>
+                </div>
+                <p class="text-gray-300 leading-relaxed">
+                    NBA teams and fans face significant challenges when it comes to predicting player performance and optimizing strategies. Teams often struggle to find data-driven insights to outmaneuver key rivals, refine defensive assignments, and identify the best players to sign. Historical examples, such as the Chicago Bulls blocking the New York Knicks in the 1990s or the 76ers' current rivalry with the Celtics, highlight the importance of having an edge to succeed in critical matchups.
+                </p>
+                <p class="text-gray-300 leading-relaxed mt-4">
+                    Meanwhile, fans and bettors typically rely on time-consuming research or unreliable "hunches". Teams also lack tools to predict how opposing players will perform against them, hindering their ability to adjust defensive strategies or assess potential player acquisitions effectively. This lack of accessible, accurate insights results in less confidence and poor decision-making.
+                </p>
+            </section>
+
+            <!-- Approach -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.6s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="brain" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">My Approach</h2>
+                </div>
+                <div class="space-y-8">
+                    <!-- Modular Function Design -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Modular Function Design</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Created separate functions to pull player-specific and team-specific data, ensuring clear organization and modularity.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Developed a user-friendly input system in the main program to allow any player or team data to be accessed seamlessly.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Ensured API integration across endpoints, linking player stats to team matchup stats for a cohesive data pipeline.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Feature Engineering -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Feature Engineering</h3>
+                        <p class="text-gray-300 mb-2">Designed features for model training, including:</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Player-specific metrics like efficient field goal percentage (eFG%) and usage percentage (USG%).</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Team-specific defensive metrics such as the last 5-game average for ratings, rebounds, steals, and blocks.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Focused on capturing the interaction between an offensive player's scoring ability and the defensive team's effectiveness.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Model Training and Validation -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Model Training and Validation</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Trained a random forest model using the engineered features to predict player performance (points, rebounds, assists).</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Evaluated model accuracy using Mean Absolute Error (MAE) by comparing actual historical performance with the model's predictions.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Predictive Insights -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Predictive Insights</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Applied the trained model to hypothetical future matchups between players and teams.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Delivered user-friendly predictions, including an estimated margin of error, enabling users to make educated guesses about offensive player performance.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Code Examples -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.8s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="code" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Code Examples</h2>
+                </div>
+                <div>
+                    <!-- Python code with syntax highlighting -->
+                    <div class="bg-zinc-800 p-6 rounded-lg overflow-x-auto">
+                        <pre class="text-gray-300 text-sm"><code class="language-python"><span class="text-blue-400">def</span> <span class="text-green-400">calculate_features</span>(player_logs, opponent_logs):
+    <span class="text-green-400">"""
+    Add calculated features such as eFG%, Usage Rate, and opponent stats.
+    """</span>
+    <span class="text-purple-400"># Player-specific stats</span>
+    player_logs[<span class="text-green-400">'eFG%'</span>] = (player_logs[<span class="text-green-400">'FGM'</span>] + 0.5 * player_logs[<span class="text-green-400">'FG3M'</span>]) / player_logs[<span class="text-green-400">'FGA'</span>]
+    player_logs[<span class="text-green-400">'Usage%'</span>] = (player_logs[<span class="text-green-400">'FGA'</span>] + 0.44 * player_logs[<span class="text-green-400">'FTA'</span>] + player_logs[<span class="text-green-400">'TOV'</span>]) / player_logs[<span class="text-green-400">'MIN'</span>]
+
+    <span class="text-purple-400"># Opponent-specific stats</span>
+    opponent_logs[<span class="text-green-400">'Possessions'</span>] = opponent_logs[<span class="text-green-400">'FGA'</span>] - opponent_logs[<span class="text-green-400">'OREB'</span>] + opponent_logs[<span class="text-green-400">'TOV'</span>] + (0.44 * opponent_logs[<span class="text-green-400">'FTA'</span>])
+    opponent_logs[<span class="text-green-400">'DEF_RATING'</span>] = (opponent_logs[<span class="text-green-400">'PTS'</span>] / opponent_logs[<span class="text-green-400">'Possessions'</span>]) * 100
+
+    <span class="text-purple-400"># Rolling averages for opponent defensive stats</span>
+    rolling_stats = [<span class="text-green-400">'DEF_RATING'</span>, <span class="text-green-400">'REB'</span>, <span class="text-green-400">'STL'</span>, <span class="text-green-400">'BLK'</span>, <span class="text-green-400">'TOV'</span>]
+    for stat in rolling_stats:
+        opponent_logs[f'{stat}_Rolling'] = opponent_logs[stat].rolling(5, min_periods=1).mean()
+
+    player_logs[<span class="text-green-400">'Opponent_Team'</span>] = player_logs[<span class="text-green-400">'MATCHUP'</span>].apply(get_opponent_team)
+    opponent_logs[<span class="text-green-400">'Team_Name'</span>] = opponent_logs[<span class="text-green-400">'MATCHUP'</span>].apply(<span class="text-yellow-300">lambda</span> x: x.split(<span class="text-green-400">' '</span>)[0])
+
+    <span class="text-purple-400"># Merge on GAME_DATE and Opponent_Team</span>
+    merged = pd.merge(
+        player_logs,
+        opponent_logs,
+        left_on=[<span class="text-green-400">'GAME_DATE'</span>, <span class="text-green-400">'Opponent_Team'</span>],
+        right_on=[<span class="text-green-400">'GAME_DATE'</span>, <span class="text-green-400">'Team_Name'</span>],
+        suffixes=(<span class="text-green-400">''</span>, <span class="text-green-400">'_Opponent'</span>)
+    )
+
+    <span class="text-purple-400"># Add home and rest days</span>
+    merged[<span class="text-green-400">'Is_Home'</span>] = merged[<span class="text-green-400">'MATCHUP'</span>].apply(<span class="text-yellow-300">lambda</span> x: 1 <span class="text-pink-400">if</span> <span class="text-green-400">'vs.'</span> <span class="text-pink-400">in</span> x <span class="text-pink-400">else</span> 0)
+    merged[<span class="text-green-400">'Rest_Days'</span>] = merged[<span class="text-green-400">'GAME_DATE'</span>].diff().dt.days.fillna(0).astype(<span class="text-blue-400">int</span>)
+
+    <span class="text-pink-400">return</span> merged</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Learnings -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="lightbulb" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Key Learnings</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Leveraged advanced player metrics like effective field goal percentage (eFG%), usage rate, and rolling defensive averages to uncover trends and improve the accuracy of player performance predictions.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Learned that streaky players and unpredictable factors like injuries or rotation changes introduce challenges, highlighting the importance of adaptability in data modeling.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Applied Random Forest models to effectively capture non-linear relationships in NBA data, enhancing prediction reliability.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <p class="text-gray-300">Gained hands-on experience deploying machine learning models in a production environment, ensuring high reliability and user satisfaction. Feedback showed users appreciated how predictions consistently aligned with actual performance within the mean absolute error.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Benefits -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.2s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="check-circle" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Key Benefits</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Strategic Optimization -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Strategic Optimization</h3>
+                        <p class="text-gray-300">Equips teams and coaches with data-driven insights to optimize matchups, enhance player development, and secure competitive advantages in recruitment and roster building.</p>
+                    </div>
+
+                    <!-- Enhanced Fan Experience -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Trusted Predictions</h3>
+                        <p class="text-gray-300">Fans can leverage accurate performance forecasts for fantasy sports and betting success. Simple player and matchup inputs provide instant, actionable predictions for upcoming games.</p>
+                    </div>
+
+                    <!-- Time Efficiency -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Rapid Analysis</h3>
+                        <p class="text-gray-300">Leverages advanced machine learning models to eliminate hours of manual research, delivering comprehensive player analytics with high accuracy for any player or mathcup.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Implementation (moved to bottom) -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.4s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="book-open" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Technical Implementation</h2>
+                </div>
+                <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                    <h3 class="text-lg font-semibold mb-4 text-purple-400">Core Technologies</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Data Collection: nba_api</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Data Processing: pandas, numpy</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Machine Learning: scikit-learn</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Visualization: matplotlib, seaborn</p>
+                            </div>
+                            <div class="flex items-center gap-3 bg-zinc-800/50 p-3 rounded-lg">
+                                <span class="text-purple-400">•</span>
+                                <p class="text-gray-300">Programming Framework: Python</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
