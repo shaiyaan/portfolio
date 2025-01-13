@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Loan Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #000000;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #a78bfa,
+                #ec4899,
+                #8b5cf6,
+                #d946ef
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.01);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="py-4 px-8 border-b border-zinc-800 section-animate">
+        <a href="../index.html" class="text-purple-400 hover:text-purple-300 flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Back to Portfolio
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="text-center mb-12 pt-20 section-animate" style="animation-delay: 0.2s">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-4 gradient-text">
+                Student Loan Analysis
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                Analysis of student loan data to understand borrowing patterns and debt distribution
+            </p>
+            <!-- Two Button Layout -->
+            <div class="flex justify-center gap-4">
+                <a href="https://github.com/shaiyaan/student-loans" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="group flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full transform transition-all duration-300 hover:scale-105 hover:from-pink-400 hover:to-purple-400 text-white">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                    <span>View Code</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4">
+        <div class="space-y-12">
+            <!-- Problem Statement -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.4s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="target" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Problem Statement</h2>
+                </div>
+                <p class="text-gray-300 leading-relaxed">
+                    Student loans represent a significant financial burden for millions of individuals in the United States, affecting not only borrowers but also the broader economy. With total student loan debt exceeding $1.7 trillion, many Americans struggle to balance repayment with other financial goals, such as saving for retirement or purchasing a home. However, the impact of student loans is not uniform; some states, demographics, and groups face greater challenges than others.
+                </p>
+                <p class="text-gray-300 leading-relaxed mt-4">
+                    Despite the widespread nature of the issue, clear, accessible, and actionable data is often lacking. Policymakers, researchers, and advocacy groups need processed and visualized insights to understand key trends, identify regions or populations most affected, and guide interventions to reduce the burden of student debt. Without such analysis, it is difficult to address disparities or create targeted, effective solutions.
+                </p>
+                <p class="text-gray-300 leading-relaxed mt-4">
+                    By analyzing and visualizing trends in student loan data (number of borrowers, total loan amounts, and changes over time), this project aims to fill this gap. The goal is to provide an educational tool for stakeholders, equipping policymakers, researchers, and the general public with the insights necessary to drive informed discussions and impactful decisions about student debt relief and financial education.
+                </p>
+            </section>
+
+            <!-- Approach -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.6s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="brain" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">My Approach</h2>
+                </div>
+                <div class="space-y-8">
+                    <!-- Data Preparation -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Data Preparation</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Loaded raw data from CSV files containing student loan information (e.g., number of borrowers, total loan amounts).</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Removed unnecessary header lines to isolate relevant data for analysis.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <div>
+                                    <p>Cleaned and standardized data by:</p>
+                                    <ul class="space-y-2 mt-2 pl-6">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Removing symbols like $ and ,</p>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Converting numeric values into integers for easier calculations</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Organized cleaned data into lists and dictionaries to enable efficient state-level and year-level analysis.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Modular Analysis -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Modular Analysis</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <div>
+                                    <p>Created individual functions to address specific questions and problems, such as:</p>
+                                    <ul class="space-y-2 mt-2 pl-6">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Calculating the total number of borrowers for a given year (e.g., 2019)</p>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Summing up loan balances for specific years (e.g., 2021)</p>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Finding the average loan per borrower in a year (e.g., 2016)</p>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Identifying states with the highest and lowest average loan balances</p>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Measuring the yearly change in loan amounts for each state</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Focused on providing flexibility to analyze trends for different states, years, and metrics.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Data Visualization -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Data Visualization</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <div>
+                                    <p>Generated visualizations to make insights clear and actionable:</p>
+                                    <ul class="space-y-2 mt-2 pl-6">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>A histogram showing the distribution of average loan balances per borrower for 2021</p>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-purple-400">-</span>
+                                            <p>Line charts comparing trends in average loan balances for specific states (e.g., California and Wyoming) across multiple years</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Ensured that all visualizations included proper titles, labeled axes, and legends for clarity.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Insight Generation -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Insight Generation</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Analyzed trends and disparities in student loan data to identify actionable insights.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Highlighted state-level differences (e.g., states with the greatest or smallest loan burdens).</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Provided specific analyses (e.g., average loan balances in Nevada, total borrowers in 2019) to answer targeted questions.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Created a structured workflow through the main() function to integrate all analyses for comprehensive reporting.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Code Examples -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 0.8s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="code" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Code Examples</h2>
+                </div>
+                <div>
+                    <!-- Python code with syntax highlighting -->
+                    <div class="bg-zinc-800 p-6 rounded-lg overflow-x-auto">
+                        <pre class="text-gray-300 text-sm"><code class="language-python"><span class="text-blue-400">def</span> <span class="text-green-400">line_chart</span>(state, data, data2):
+    avg = []
+    <span class="text-pink-400">for</span> i <span class="text-pink-400">in</span> range(1, len(data[state])):
+        num_borrowers = data[state][i]
+        total_amount = data2[state][i]
+        <span class="text-pink-400">if</span> num_borrowers > 0:
+            average = total_amount / num_borrowers
+            avg.append(average)
+        <span class="text-pink-400">else</span>:
+            avg.append(0)        
+    <span class="text-pink-400">return</span> avg
+
+state1_idx = 4  <span class="text-purple-400"># California</span>
+state2_idx = 48  <span class="text-purple-400"># Wyoming</span>
+state1_avg = line_chart(state1_idx, data, data2)
+state2_avg = line_chart(state2_idx, data, data2)    
+
+years = [<span class="text-green-400">'2016'</span>,<span class="text-green-400">'2017'</span>,<span class="text-green-400">'2018'</span>,<span class="text-green-400">'2019'</span>,<span class="text-green-400">'2020 (June)'</span>,<span class="text-green-400">'2020'</span>,<span class="text-green-400">'2021'</span>]
+
+plt.plot(years, state1_avg, label=<span class="text-green-400">'California'</span>)
+plt.plot(years, state2_avg, label=<span class="text-green-400">'Wyoming'</span>)
+plt.title(<span class="text-green-400">'Comparison of Average Loan Balances Across Years'</span>)
+plt.xlabel(<span class="text-green-400">'Year'</span>)
+plt.ylabel(<span class="text-green-400">'Average Loan Balance'</span>)
+plt.legend()
+plt.show()</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Learnings -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.0s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="lightbulb" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Key Learnings</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-purple-400">Data Cleaning and Transformation</h3>
+                                <p class="text-gray-300">Learned how to efficiently clean and standardize messy raw data, including handling symbols and converting formats for numerical analysis.</p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-purple-400">Modular Design for Reusability</h3>
+                                <p class="text-gray-300">Realized the importance of structuring code into reusable functions, making it easier to analyze different states, years, or metrics independently.</p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <div class="flex items-start gap-3">
+                            <span class="text-purple-400">•</span>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-purple-400">Data Visualization as a Storytelling Tool</h3>
+                                <p class="text-gray-300">Understood how to use visualizations like histograms and line charts to communicate insights clearly and effectively to diverse audiences.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Benefits -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.2s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="check-circle" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Key Benefits</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Flexible Analysis -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Flexible Analysis</h3>
+                        <p class="text-gray-300">Modular design enables easy customization for analyzing specific states, years, or trends without requiring major changes.</p>
+                    </div>
+
+                    <!-- Clear Visualizations -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">Clear Visualizations</h3>
+                        <p class="text-gray-300">Integrated histograms and line charts simplify complex trends, aiding understanding and decision-making for stakeholders.</p>
+                    </div>
+
+                    <!-- End-to-End Processing -->
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-400">End-to-End Processing</h3>
+                        <p class="text-gray-300">The code handles everything from raw data cleaning to actionable insights, providing a streamlined, efficient solution.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Implementation -->
+            <section class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 section-animate" style="animation-delay: 1.4s">
+                <div class="flex items-center gap-3 mb-6">
+                    <i data-lucide="book-open" class="w-8 h-8 text-purple-400"></i>
+                    <h2 class="text-2xl font-bold gradient-text">Technical Implementation</h2>
+                </div>
+                <div class="space-y-6">
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-4 text-purple-400">Python Standard Library</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Modules: csv for file reading and data processing.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Data Structures: Lists and dictionaries for organizing and analyzing data.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-purple-400">•</span>
+                                <p>Arithmetic Operations: Used for calculations like averages, totals, and changes over time.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pl-4 border-l-2 border-purple-500 hover-scale hover-glow bg-zinc-900/50 rounded-r-lg transition-all duration-300 hover:bg-zinc-800/50">
+                        <h3 class="text-lg font-semibold mb-4 text-purple-400">Matplotlib</h3>
+                        <p class="text-gray-300">For creating visualizations such as histograms and line charts to represent trends in loan data.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
